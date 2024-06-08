@@ -1,13 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios";
 import { useState } from "react";
 import toast from 'react-hot-toast';
+
 import { RegisterData } from "../types/types";
-
-
+import { useAuthContext } from "../context/AuthContext";
 
 const useRegister = () => {
     const [loading, setLoading] = useState(false)
+    const { setAuthUser } = useAuthContext()
 
     const signUp = async ({
         name,
@@ -23,7 +23,7 @@ const useRegister = () => {
             email,
             password,
             confirmPassword,
-            gender,
+            gender
         });
 
         if (!success) return;
@@ -32,7 +32,7 @@ const useRegister = () => {
 
         try {
             const response = await axios.post(
-                "/api/user/register",
+                "http://localhost:5000/api/user/register",
                 {
                     name,
                     username,
@@ -42,6 +42,8 @@ const useRegister = () => {
                     gender
                 });
             console.log(response.data);
+            localStorage.setItem("user", JSON.stringify(response.data));
+            setAuthUser(response.data);
 
             if (response.data.error) {
                 throw new Error(response.data.error)
@@ -49,7 +51,11 @@ const useRegister = () => {
             toast.success("Registration successful");
         } catch (error) {
             console.log("error in useRegister", error);
-            toast.error("Failed to register. Please try again later.");
+            if (axios.isAxiosError(error) && error.response && error.response.data) {
+                toast.error(error.response.data.error || "Failed to register. Please try again later.");
+            } else {
+                toast.error("Failed to register. Please try again later.");
+            }
         } finally {
             setLoading(false)
         }

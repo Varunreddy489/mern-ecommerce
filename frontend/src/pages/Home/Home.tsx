@@ -1,12 +1,9 @@
-// import Products from "./Products";
-
-import Dashboard from "../../dashboard/Dashboard";
+import Products from "./Products";
 
 const Home = () => {
   return (
     <div>
-      {/* <Products /> */}
-      <Dashboard />
+      <Products />
     </div>
   );
 };

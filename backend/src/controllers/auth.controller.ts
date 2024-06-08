@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import bcrypt from "bcryptjs";
 
 import { authModel } from "../models/authModel";
 import generateTokenAndSetCookie from "../utils/genToken";
 import { authTypes } from "../types/types";
+import bcrypt from 'bcryptjs';
 
 export const register = async (req: Request<any, any, authTypes>, res: Response) => {
     try {
@@ -49,7 +49,7 @@ export const register = async (req: Request<any, any, authTypes>, res: Response)
             profilePic: newUser.profilePic,
         });
 
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in register:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -75,7 +75,7 @@ export const login = async (req: Request<any, any, authTypes>, res: Response) =>
             username: user.username,
             profilePic: user.profilePic
         })
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in login:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -85,7 +85,7 @@ export const logout = async (req: Request<any, any, authTypes>, res: Response) =
     try {
         res.cookie("jwt", "", { maxAge: 0 });
         res.status(200).json({ message: "Logged out successfully" });
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in logout:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -95,7 +95,7 @@ export const getAllUsers = async (req: Request<any, any, authTypes>, res: Respon
     try {
         const users = await authModel.find()
         return res.status(403).json(users)
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in get all users:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -113,7 +113,7 @@ export const getUser = async (req: Request<any, any, authTypes>, res: Response) 
 
         const user = await authModel.findById(id)
         return res.status(200).json(user)
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in get user:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -134,7 +134,7 @@ export const updateUser = async (req: Request<any, any, authTypes>, res: Respons
 
         return res.status(200).json(user)
 
-    } catch (error) {
+    } catch (error: any) {
         console.log("error in update user:", error.message);
         res.status(404).json({ error: "internal server error" })
     }
@@ -156,8 +156,8 @@ export const deleteUser = async (req: Request<any, any, authTypes>, res: Respons
             return res.status(404).json({ eror: "user not found" })
         }
         return res.status(200).send({ message: 'Product deleted successfully' });
-    } catch (error) {
-        console.log("error in deleteuser", error);
+    } catch (error: any) {
+        console.log("error in deleteuser", error.message);
         res.status(404).json({ error: "internal server error" })
     }
 };

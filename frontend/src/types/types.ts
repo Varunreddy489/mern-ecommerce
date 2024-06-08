@@ -16,3 +16,17 @@ export interface RegisterData {
     confirmPassword: string;
     gender: string;
 }
+
+export interface LoginData {
+    email: string;
+    password: string;
+}
+
+export interface AuthUserTypes {
+    id: string;
+    name: string,
+    username: string,
+    email: string,
+    password?: string,
+    profilePic?: string,
+}

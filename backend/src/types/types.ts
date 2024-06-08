@@ -1,4 +1,4 @@
-import { Document, Types } from 'mongoose';
+import { Document, Schema, Types } from 'mongoose';
 
 export interface authTypes {
     name: string;
@@ -32,4 +32,8 @@ export interface CartTypes extends Document {
     cartItems: CartItem[];
     user: Types.ObjectId;
     totalPrice: number;
+}
+
+export interface IRequest extends Request {
+    userId?: Schema.Types.ObjectId;
 }

@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+// import { Link } from "react-router-dom";
 import useRegister from "../../hooks/useRegister";
 
 const SignUp = () => {
@@ -25,23 +26,21 @@ const SignUp = () => {
 
   const handleClick = async () => {
     await signUp(inputs);
-    setInputs({
-      name: "",
-      username: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      gender: "male",
-    });
+    // setInputs({
+    //   name: "",
+    //   username: "",
+    //   email: "",
+    //   password: "",
+    //   confirmPassword: "",
+    //   gender: "male",
+    // });
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen dark">
       <div className="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold text-gray-200 mb-4">Sign Up</h2>
-        <form className="flex flex-col"
-        //  onSubmit={handleSignUp}
-         >
+        <form className="flex flex-col">
           <div className="mb-4">
             <input
               placeholder="Name"
@@ -115,7 +114,7 @@ const SignUp = () => {
             </select>
           </div>
           <a
-            href="#"
+            // to="/login"
             className="text-sm text-center hover:text-blue-500 hover:underline"
           >
             Already have an account? Login

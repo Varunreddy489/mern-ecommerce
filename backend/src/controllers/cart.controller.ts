@@ -1,17 +1,12 @@
-// import { Request, Response } from "express";
-// import { authTypes, CartItem, CartTypes } from '../types/types';
-// import { cartModel } from "../models/cartModel";
-// import { productModel } from "../models/productModel";
-// import { authModel } from "../models/authModel";
+import { Request, Response } from 'express';
+import { CartTypes, CartItem, IRequest } from '../types/types';
+import { cartModel } from '../models/cartModel';
 
-// export const addToCart = async (req: Request<any, any, { productId: string; quantity: number; }  >, res: Response) => {
-//     try {
-        
-
+export const addToCart = async (req: IRequest, res: Response) => {
+  try {
+    const userId = req.userId
     
+  } catch (error) {
 
-//     } catch (error) {
-//         console.error("Error adding product to cart:", error);
-//         res.status(500).send("Failed to add product to cart");
-//     }
-// };
+  }
+}

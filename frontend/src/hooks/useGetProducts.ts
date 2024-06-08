@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { ProductTypes } from "../pages/Register/types/types";
+import { ProductTypes } from "../types/types";
 
 
 const useGetProducts = () => {

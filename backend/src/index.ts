@@ -1,6 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
-import cors from "cors"
+import cors from 'cors';
 
 import connectToMongo from "./db/connectToMongo";
 import { productRoutes } from "./routes/product.routes";

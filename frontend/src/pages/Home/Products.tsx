@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import useGetProducts from "../../hooks/useGetProducts";
+import { ProductTypes } from "../../types/types";
 import ProductCard from "../../components/ProductCard";
-import { ProductTypes } from "../Register/types/types";
+import useGetProducts from "../../hooks/useGetProducts";
 
 const Products = () => {
   const { loading, products, getProducts } = useGetProducts();

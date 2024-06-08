@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ProductTypes } from '../pages/Register/types/types';
 import toast from "react-hot-toast";
 import axios from "axios";
+import { ProductTypes } from "../types/types";
 
 const useUpdateProduct = () => {
     const [loading, setLoading] = useState(false);
