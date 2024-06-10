@@ -1,4 +1,4 @@
-import { Document, Schema, Types } from 'mongoose';
+import mongoose, { Document, Schema, Types } from 'mongoose';
 
 export interface authTypes {
     name: string;
@@ -19,21 +19,13 @@ export interface productTypes {
     rating: number
 }
 
-export interface CartItem {
-    title: String;
-    description: String;
-    price: Number;
-    imageUrl: String;
-    rating: Number;
-    count: Number;
+export interface cartItemTypes {
+    productId: mongoose.Schema.Types.ObjectId;
+    quantity: number;
 }
 
-export interface CartTypes extends Document {
-    cartItems: CartItem[];
-    user: Types.ObjectId;
+export interface cartTypes {
+    userId: mongoose.Schema.Types.ObjectId;
+    items: cartItemTypes[];
     totalPrice: number;
-}
-
-export interface IRequest extends Request {
-    userId?: Schema.Types.ObjectId;
 }

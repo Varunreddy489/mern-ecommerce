@@ -1,8 +1,10 @@
+import Navbar from "../../components/Navbar";
 import Products from "./Products";
 
 const Home = () => {
   return (
-    <div>
+    <div className="" >
+      <Navbar/>
       <Products />
     </div>
   );

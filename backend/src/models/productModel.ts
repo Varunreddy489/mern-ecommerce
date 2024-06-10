@@ -24,7 +24,8 @@ const productSchema = new mongoose.Schema<productTypes>({
     },
     rating: {
         type: Number,
+        required: true
     }
 })
 
-export const productModel=mongoose.model<productTypes>("product",productSchema)
+export const productModel = mongoose.model<productTypes>("product", productSchema)

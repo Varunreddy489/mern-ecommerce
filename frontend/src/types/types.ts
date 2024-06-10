@@ -2,10 +2,10 @@ export interface ProductTypes {
     _id?: string;
     title: string;
     description: string;
-    price: number;
+    price: string;
     category: string;
-    imageUrl: string;
-    rating: number
+    image: string;
+    rating: string
 }
 
 export interface RegisterData {

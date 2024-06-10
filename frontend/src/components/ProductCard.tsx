@@ -1,4 +1,4 @@
-import { ProductTypes } from "../pages/Register/types/types";
+import { ProductTypes } from "../types/types";
 
 const ProductCard = ({ product }: { product: ProductTypes }) => {
   return (
@@ -6,12 +6,13 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
       <img
         className="w-full h-40 object-cover rounded-t-lg"
         alt={product.title}
-        src={product.imageUrl}
+        src={product.image}
       />
       <div className="p-4">
         <h2 className="text-xl font-semibold">{product.title}</h2>
-        <p className="text-gray-600">{product.price}</p>
+        <p className=" text-lg font-bold text-yellow-400 mt-2  ">{product.price} $ </p>
         <div className="flex justify-between items-center mt-4">
+        <p className="bg-green-500 px-1.5 py-0.5  rounded-sm text-white flex items-center gap-0.5">{product.rating} ★</p>
           <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
             Add To Cart
           </button>
@@ -22,9 +23,3 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
 };
 
 export default ProductCard;
-
-/*
-};
-
-export default ProductCard;
- */

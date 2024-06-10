@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { ProductTypes } from "../pages/Register/types/types";
-
+import { ProductTypes } from "../types/types";
 
 
 const useAddProduct = () => {
@@ -14,7 +12,7 @@ const useAddProduct = () => {
         description,
         price,
         category,
-        imageUrl,
+        image,
         rating,
     }: ProductTypes) => {
 
@@ -23,7 +21,7 @@ const useAddProduct = () => {
             description,
             price,
             category,
-            imageUrl,
+            image,
             rating,
         })
 
@@ -32,12 +30,12 @@ const useAddProduct = () => {
         setLoading(true)
 
         try {
-            const response = await axios.post(" /api/product/addProduct", {
+            const response = await axios.post(" http://localhost:5000/api/product/addProduct", {
                 title,
                 description,
                 price,
                 category,
-                imageUrl,
+                image,
                 rating,
             })
 
@@ -62,9 +60,9 @@ const useAddProduct = () => {
 export default useAddProduct
 
 function handleInputErrors(data: ProductTypes) {
-    const { title, description, price, category, imageUrl, rating } = data;
+    const { title, description, price, category, image, rating } = data;
 
-    if (!title || !description || !price || !category || !imageUrl || !rating) {
+    if (!title || !description || !price || !category || !image || !rating) {
         toast.error("Fill all input fields")
         return false
     }

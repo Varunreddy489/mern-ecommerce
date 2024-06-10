@@ -5,7 +5,7 @@ import { productTypes } from "../types/types";
 export const addProduct = async (req: Request<any, any, productTypes>, res: Response) => {
     try {
         const { title, description, price, category, imageUrl, rating } = req.body
-
+        
         const existingProduct = await productModel.findOne({ title });
         if (existingProduct) {
             return res.status(400).json({ error: "Product with this title already exists" });
@@ -37,13 +37,13 @@ export const addProduct = async (req: Request<any, any, productTypes>, res: Resp
 
 export const getAllProducts = async (req: Request<any, any, productTypes>, res: Response) => {
     try {
-        const products = await productModel.find()
-        return res.status(200).json(products)
+        const products = await productModel.find();
+        return res.status(200).json(products);
     } catch (error) {
-        console.log("error in getAllProducts", error);
-        res.status(500).json({ error: "Error in fetching" })
+        console.log("Error in getAllProducts", error);
+        res.status(500).json({ error: "Error in fetching" });
     }
-}
+};
 
 export const getProduct = async (req: Request<any, any, productTypes>, res: Response) => {
     try {

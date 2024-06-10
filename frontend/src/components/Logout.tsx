@@ -4,7 +4,7 @@ import useLogout from "../hooks/useLogout";
 const Logout = () => {
   const { loading, logout } = useLogout();
   return (
-    <div className="text-center">
+    <div className=" flex text-center">
       {!loading ? (
         <CiLogout
           className="w-6 h-6 text-white cursor-pointer"
@@ -13,6 +13,7 @@ const Logout = () => {
       ) : (
         <span className="loading loading-spinner"></span>
       )}
+      <span className="ml-2">{loading ? "Logging out..." : "Logout"}</span>
     </div>
   );
 };

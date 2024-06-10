@@ -35,7 +35,11 @@ const useLogin = () => {
 
         } catch (error) {
             console.log("error in useLogin", error);
-            toast.error("Failed to login. Please try again later.");
+            if (axios.isAxiosError(error) && error.response && error.response.data) {
+                toast.error(error.response.data.error || "Failed to register. Please try again later.");
+            } else {
+                toast.error("Failed to register. Please try again later.");
+            }
         } finally {
             setLoading(false)
         }

@@ -7,10 +7,10 @@ const AddProducts = () => {
   const [inputs, setInputs] = useState<ProductTypes>({
     title: "",
     description: "",
-    price: 0,
+    price: "",
     category: "",
     imageUrl: "",
-    rating: 0,
+    rating: "",
   });
 
   const { loading, addProducts } = useAddProduct();
@@ -34,14 +34,14 @@ const AddProducts = () => {
   const handleAddProduct = async () => {
     await addProducts(inputs);
     toast.success("Your Product Added Successfully");
-    setInputs({
-      title: "",
-      description: "",
-      price: 0,
-      category: "",
-      imageUrl: "",
-      rating: 0,
-    });
+    // setInputs({
+    //   title: "",
+    //   description: "",
+    //   price: "",
+    //   category: "",
+    //   imageUrl: "",
+    //   rating: "",
+    // });
   };
 
   return (

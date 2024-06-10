@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
 import useLogin from "../../hooks/useLogin";
 
@@ -60,9 +61,12 @@ const Login = () => {
             />
           </div>
 
-          <a href="#" className="text-md hover:text-blue-300 underline">
+          <Link
+            to='/signup'
+            className="text-md text-white hover:text-blue-300 underline"
+          >
             New to Ecommerce !! Signup
-          </a>
+          </Link>
           <button
             type="submit"
             className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-3 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"

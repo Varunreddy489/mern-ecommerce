@@ -49,6 +49,7 @@ const useRegister = () => {
                 throw new Error(response.data.error)
             }
             toast.success("Registration successful");
+            
         } catch (error) {
             console.log("error in useRegister", error);
             if (axios.isAxiosError(error) && error.response && error.response.data) {
