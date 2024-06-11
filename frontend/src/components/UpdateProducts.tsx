@@ -1,15 +1,15 @@
 import { useState, ChangeEvent } from "react";
-import { ProductTypes } from "../pages/Register/types/types";
 import useUpdateProduct from "../hooks/useUpdateProduct";
+import { ProductTypes } from "../types/types";
 
 const UpdateProducts = () => {
   const [inputs, setInputs] = useState<ProductTypes>({
     title: "",
     description: "",
-    price: 0,
+    price: "",
     category: "",
-    imageUrl: "",
-    rating: 0,
+    image: "",
+    rating: "",
   });
 
   const { loading, updateProducts } = useUpdateProduct();
@@ -32,14 +32,14 @@ const UpdateProducts = () => {
 
   const handleAddProduct = async () => {
     try {
-      await updateProducts("product_id", inputs); // Replace "product_id" with your actual product ID
+      await updateProducts("product_id", inputs);
       setInputs({
         title: "",
         description: "",
-        price: 0,
+        price: "",
         category: "",
-        imageUrl: "",
-        rating: 0,
+        image: "",
+        rating: "",
       });
     } catch (error) {
       console.error("Error adding product:", error);
@@ -103,7 +103,7 @@ const UpdateProducts = () => {
               className="bg-gray-700 w-full text-gray-200 border-0 rounded-md p-3 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               type="text"
               name="imageUrl"
-              value={inputs.imageUrl}
+              value={inputs.image}
               onChange={handleInputChange}
               required
             />

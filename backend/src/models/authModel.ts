@@ -1,8 +1,6 @@
 import mongoose from "mongoose";
 import { authTypes } from "../types/types";
 
-
-
 const authSchema = new mongoose.Schema<authTypes>({
     name: {
         type: String,

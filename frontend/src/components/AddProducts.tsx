@@ -9,7 +9,7 @@ const AddProducts = () => {
     description: "",
     price: "",
     category: "",
-    imageUrl: "",
+    image: "",
     rating: "",
   });
 
@@ -101,7 +101,7 @@ const AddProducts = () => {
               className="bg-gray-700 w-full text-gray-200 border-0 rounded-md p-3 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
               type="text"
               name="imageUrl"
-              value={inputs.imageUrl}
+              value={inputs.image}
               onChange={handleInputChange}
               required
             />

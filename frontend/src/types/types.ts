@@ -30,3 +30,7 @@ export interface AuthUserTypes {
     password?: string,
     profilePic?: string,
 }
+
+export interface CartTypes{
+    
+}

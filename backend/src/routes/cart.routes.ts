@@ -1,13 +1,13 @@
 import Router from "express"
 
 import { verifyToken } from "../middleware/protectedRoute"
-import { addToCart, getCart, removeItem, updateItem } from "../controllers/cart.controller"
+import { addToCart, getCartProducts, removeItem, updateCart } from "../controllers/cart.controller"
 
 const router = Router()
 
-router.post("/addCart", verifyToken, addToCart)
-router.get('/:userId', verifyToken, getCart);
-router.put('/updateItem/:itemId', verifyToken, updateItem);
-router.delete('/removeItem/:itemId', verifyToken, removeItem);
+router.post("/:product", addToCart);
+router.get('/', getCartProducts);
+router.put('/:userId/:productId', updateCart);
+router.delete('/:userId/:productId', removeItem);
 
 export { router as cartRoutes }

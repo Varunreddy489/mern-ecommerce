@@ -3,8 +3,8 @@ import Products from "./Products";
 
 const Home = () => {
   return (
-    <div className="" >
-      <Navbar/>
+    <div className="">
+      <Navbar />
       <Products />
     </div>
   );

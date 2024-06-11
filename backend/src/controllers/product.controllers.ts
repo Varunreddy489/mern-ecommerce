@@ -5,7 +5,7 @@ import { productTypes } from "../types/types";
 export const addProduct = async (req: Request<any, any, productTypes>, res: Response) => {
     try {
         const { title, description, price, category, imageUrl, rating } = req.body
-        
+
         const existingProduct = await productModel.findOne({ title });
         if (existingProduct) {
             return res.status(400).json({ error: "Product with this title already exists" });

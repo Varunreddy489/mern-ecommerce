@@ -2,12 +2,17 @@ import { useState } from "react";
 import Urbanlogo from "../../public/Urbanlogo.svg";
 import Dropdown from "./Dropdown";
 import { TiShoppingCart } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleClick = () => {
+    navigate("/cart");
   };
 
   const data = localStorage.getItem("user");
@@ -37,7 +42,10 @@ const Navbar = () => {
             {isDropdownOpen && <Dropdown />}
           </div>
 
-          <TiShoppingCart className="text-2xl text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white" />
+          <TiShoppingCart
+            className="text-2xl text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white"
+            onClick={handleClick}
+          />
         </div>
       </div>
     </nav>
